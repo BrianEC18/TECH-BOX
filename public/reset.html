@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restablecer Contraseña - TECH-BOX</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <!-- Contenedor principal -->
+  <div class="login-container">
+    <h2>Restablecer Contraseña</h2>
+    <form id="reset-form">
+      <!-- Campos para nueva contraseña -->
+      <input type="password" id="password" placeholder="Nueva Contraseña" required>
+      <div id="password-error" class="error-message"></div>
+
+      <input type="password" id="confirm-password" placeholder="Confirmar Contraseña" required>
+      <div id="confirm-password-error" class="error-message"></div>
+
+      <!-- Botón para enviar -->
+      <button type="submit">Cambiar Contraseña</button>
+    </form>
+
+    <!-- Enlace para regresar a inicio de sesión -->
+    <div class="login-links">
+      <p><a href="login.html">Regresar a Iniciar Sesión</a></p>
+    </div>
+  </div>
+</body>
+</html>

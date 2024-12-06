@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TECH-BOX - Tienda de Tecnología</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <header class="navbar">
+    <div class="logo" onclick="location.href='index.html'">TECH-BOX</div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Buscar productos...">
+      <button onclick="buscarProducto()">Buscar</button>
+    </div>
+    <div class="nav-actions">
+      <button onclick="filtrarOfertas()">Ofertas</button>
+      <button onclick="location.href='login.html'">Iniciar sesión</button>
+      <button onclick="location.href='carrito.html'">Carrito</button>
+    </div>
+  </header>
+
+  <!-- Contenedor principal -->
+  <div class="main-container">
+    <!-- Filtros en el lado izquierdo -->
+    <aside class="filter-menu">
+      <h2>Categorías</h2>
+      <ul>
+        <li onclick="filtrarPorCategoria('todos')">Todos</li>
+        <li onclick="filtrarPorCategoria('oferta')">Ofertas</li>
+        <li onclick="filtrarPorCategoria('computadoras')">Computadoras</li>
+        <li onclick="filtrarPorCategoria('accesorios')">Accesorios</li>
+        <li onclick="filtrarPorCategoria('telefonos')">Teléfonos</li>
+      </ul>
+    </aside>
+
+    <!-- Lista de productos -->
+    <main class="product-grid">
+      <!-- Producto 1 -->
+      <div class="item" data-categoria="computadoras">
+        <img src="images/placeholder.jpg" alt="Laptop">
+        <h3>Laptop Gamer</h3>
+        <p>Potente laptop para gaming y diseño.</p>
+        <button onclick="agregarAlCarrito('Laptop Gamer')">Añadir al carrito</button>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="item" data-categoria="accesorios">
+        <img src="images/placeholder.jpg" alt="Teclado">
+        <h3>Teclado Mecánico</h3>
+        <p>Teclado RGB con switches personalizables.</p>
+        <button onclick="agregarAlCarrito('Teclado Mecánico')">Añadir al carrito</button>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="item" data-categoria="telefonos">
+        <img src="images/placeholder.jpg" alt="Teléfono">
+        <h3>Smartphone Pro</h3>
+        <p>Última generación con cámara avanzada.</p>
+        <button onclick="agregarAlCarrito('Smartphone Pro')">Añadir al carrito</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <p>&copy; 2024 TECH-BOX. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - TECH-BOX</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <!-- Contenedor principal -->
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form id="login-form">
+      <!-- Campos de ingreso -->
+      <input type="text" id="username" placeholder="Usuario" required>
+      <div id="username-error" class="error-message"></div>
+
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <div id="password-error" class="error-message"></div>
+
+      <!-- Botón de envío -->
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <!-- Enlaces para registro y recuperación -->
+    <div class="login-links">
+      <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a>.</p>
+      <p><a href="recuperar.html">¿Olvidaste tu contraseña?</a></p>
+    </div>
+  </div>
+</body>
+</html>

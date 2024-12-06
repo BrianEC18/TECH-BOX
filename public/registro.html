@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - TECH-BOX</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <!-- Contenedor principal -->
+  <div class="login-container">
+    <h2>Registro de Usuario</h2>
+    <form id="registro-form">
+      <!-- Campos de registro -->
+      <input type="text" id="username" placeholder="Nombre de Usuario" required>
+      <div id="username-error" class="error-message"></div>
+
+      <input type="email" id="email" placeholder="Correo Electrónico" required>
+      <div id="email-error" class="error-message"></div>
+
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <div id="password-error" class="error-message"></div>
+
+      <!-- Botón de envío -->
+      <button type="submit">Registrar</button>
+    </form>
+
+    <!-- Enlace para regresar a inicio de sesión -->
+    <div class="login-links">
+      <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a>.</p>
+    </div>
+  </div>
+
+  <script>
+    // Función para manejar el registro
+    document.getElementById('registro-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const usernameError = document.getElementById("username-error");
+      const emailError = document.getElementById("email-error");
+      const passwordError = document.getElementById("password-error");
+
+      // Validaciones simples
+      usernameError.textContent = username ? "" : "El nombre de usuario es obligatorio.";
+      emailError.textContent = email ? "" : "El correo es obligatorio.";
+      passwordError.textContent = password ? "" : "La contraseña es obligatoria.";
+
+      if (!username || !email || !password) return;
+
+      try {
+        const response = await fetch("/api/registro", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password, email }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert("Registro exitoso. Ahora puedes iniciar sesión.");
+          window.location.href = "login.html"; // Redirigir a la página de inicio de sesión
+        } else {
+          alert(data.error || "Error al registrar el usuario.");
+        }
+      } catch (error) {
+        console.error("Error al registrar:", error);
+        alert("Error en el servidor. Intenta más tarde.");
+      }
+    });
+  </script>
+</body>
+</html>
